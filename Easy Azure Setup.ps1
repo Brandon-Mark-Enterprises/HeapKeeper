@@ -74,6 +74,6 @@ Write-Host "The instrumentation key is: $(($appInsightResult | ConvertFrom-Json)
 #A10
 $cosmosDBResult = az cosmosdb create --name $name --resource-group $resourceGroup --enable-free-tier true
 if($Null -eq $cosmosDBResult){
-    Write-Error "Error creating the cosmosDB" -ErrorAction Stop
+    Write-Error "Error creating the cosmosDB.  This error hasn't always been reliable, so check the azure portal in 10 minutes to see if Cosmos DB deployed successfully" -ErrorAction Stop
 }
 Write-Host "The documentEndpoint is: $(($cosmosDBResult | ConvertFrom-Json).documentEndpoint)"
